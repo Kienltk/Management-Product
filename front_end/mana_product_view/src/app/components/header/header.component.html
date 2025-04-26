@@ -1,0 +1,19 @@
+<div class="header-container">
+  <div class="header-bar">
+    <h1 class="logo">Product</h1>
+    <ul class="nav-menu">
+      <li [class.active]="activeRoute === ''" (click)="setActiveRoute('')">
+        <a routerLink="">
+          <img src="https://i.imgur.com/0XOGHgR.png"  class="nav-icon" />
+          <span class="nav-text">Home</span>
+        </a>
+      </li>
+      <li [class.active]="activeRoute === '/list'" (click)="setActiveRoute('/list')">
+        <a routerLink="/list">
+          <img src="https://i.imgur.com/xNszwew.png"  class="nav-icon" />
+          <span class="nav-text">Product List</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

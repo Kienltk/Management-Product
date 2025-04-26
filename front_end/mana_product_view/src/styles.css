@@ -1,0 +1,28 @@
+
+:root {
+    --baseColor: #525151; 
+
+    --htmlFontSize: 100%;
+    --bodyBackgroundColor:var(--baseColor) ; 
+    --bodyColor: var(--baseColor);
+    --bodyFontFamily: "Open Sans";
+    --bodyFontFamilyFallback: sans-serif;
+    --bodyFontSize: 1rem;
+    --bodyFontWeight: 400;
+    --bodyLineHeight: 1.5;
+
+    --borderRadius: 0.5rem;
+    --loginColor: #fff;
+    --buttonColor: #00bcd4; 
+    --loginSubmitColor: #fff;
+    --buttonHoverColor: #00acc1; 
+    --formGap: 1rem; 
+    --errorColor : rgb(247, 49, 49);
+    --highlightColor : #ebffa2;
+    --textColor : #000000;
+    --titleColor :#00bcd4;
+
+  }
+
+
+

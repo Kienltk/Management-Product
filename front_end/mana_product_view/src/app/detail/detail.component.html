@@ -1,0 +1,42 @@
+<div class="box-border">
+<div class="product-details-container" *ngIf="product">
+    <div class="product-image">
+      <img src="assets/images/{{ product.hrefParam }}.jpg" alt="{{ product.productName }}" />
+    </div>
+  
+    <div class="product-info">
+      <h1>{{ product.productName }}</h1>
+  
+      <div class="price">
+        <!-- <span class="price-old" *ngIf="product.promotions.length > 0"> -->
+          <!-- ${{ (product.price / (1 - product.promotions[0].promotional / 100)).toFixed(2) }} -->
+        <!-- </span> -->
+        <div>
+          ${{ product.price | number:'1.2-2' }}
+          <!-- <span class="price-down" *ngIf="product.promotions.length > 0">
+            -{{ product.promotions[0].promotional }}%
+          </span> -->
+        </div>
+      </div>
+  
+      <!-- <div class="promotion-info" *ngIf="product.promotions[0]?.promotional">
+        <p>Promotion valid until: {{ product.promotions[0].promotionalEnd | date: 'dd/MM/yyyy' }}</p>
+      </div> -->
+  
+      <div class="product-specs" [innerHTML]="product.content"></div>
+  
+      <div class="product-description" [innerHTML]="product.description"></div>
+  
+      <div class="product-meta">
+        <p><strong>Brand:</strong> {{ getBrandNameById(product.brandId) }}</p>
+        <p><strong>Category:</strong> {{ getCategoryNameById(product.categoryId) }}</p>
+        
+      </div>
+      
+      <button type="button" class="btn btn-primary" (click)="goToList()">Back To List</button>
+    </div>
+    
+    <ng-template #notFound>
+      <p>Product not found.</p>
+    </ng-template>
+  </div>

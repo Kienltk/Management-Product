@@ -1,0 +1,142 @@
+<div class="box-border">
+  <div class="create-product-container">
+    <h1>Edit Product</h1>
+    <form (ngSubmit)="onSubmit()" #productForm="ngForm">
+      <!-- Three-column layout -->
+      <div class="form-columns">
+        <!-- Column 1: Basic Information -->
+        <div class="form-section basic-info">
+          <h2 class="section-title">Basic Information</h2>
+          <div class="form-group">
+            <label for="productName">Product Name</label>
+            <input
+              type="text"
+              id="productName"
+              name="productName"
+              [(ngModel)]="product.productName"
+              required
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="price">Price ($)</label>
+            <input
+              type="number"
+              id="price"
+              name="price"
+              [(ngModel)]="product.price"
+              required
+              min="0"
+              step="0.01"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="promotional">Promotion (%)</label>
+            <input
+              type="number"
+              id="promotional"
+              name="promotional"
+              [(ngModel)]="firstPromotion.promotional"
+              min="0"
+              max="100"
+              required
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="promotionalStart">Promotion Start Date</label>
+            <input
+              type="datetime-local"
+              id="promotionalStart"
+              name="promotionalStart"
+              [(ngModel)]="firstPromotion.promotionalStart"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="promotionalEnd">Promotion End Date</label>
+            <input
+              type="datetime-local"
+              id="promotionalEnd"
+              name="promotionalEnd"
+              [(ngModel)]="firstPromotion.promotionalEnd"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select
+              id="category"
+              name="category"
+              [(ngModel)]="product.categoryId"
+              required
+              class="form-control"
+            >
+              <option [ngValue]="null" disabled>Select a category</option>
+              <option *ngFor="let category of categories" [ngValue]="category.id">
+                {{ category.categoryName }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="brand">Brand</label>
+            <select
+              id="brand"
+              name="brand"
+              [(ngModel)]="product.brandId"
+              required
+              class="form-control"
+            >
+              <option [ngValue]="null" disabled>Select a brand</option>
+              <option *ngFor="let brand of brands" [ngValue]="brand.id">
+                {{ brand.brandName }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="hrefParam">Href Param</label>
+            <input
+              type="text"
+              id="hrefParam"
+              name="hrefParam"
+              [(ngModel)]="product.hrefParam"
+              required
+              class="form-control"
+            />
+            <small>Product will be loaded from /products/detail/{{ product.hrefParam }}</small>
+          </div>
+        </div>
+
+        <!-- Column 2: Product Specifications -->
+        <div class="form-section specifications">
+          <h2 class="section-title">Product Specifications</h2>
+          <div class="form-group">
+            <label for="content">Specifications</label>
+            <div id="content" name="content" class="form-control"></div>
+          </div>
+        </div>
+
+        <!-- Column 3: Additional Details -->
+        <div class="form-section additional-details">
+          <h2 class="section-title">Additional Details</h2>
+          <div class="form-group">
+            <label for="description">Product Description</label>
+            <div id="description" name="description" class="form-control"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Actions -->
+      <div class="form-actions">
+        <button type="button" class="btn btn-primary" (click)="goToList()">Back To List</button>
+        <button type="button" (click)="resetForm()" class="btn btn-secondary">
+          Reset
+        </button>
+        <button type="submit" [disabled]="!productForm.valid" class="btn btn-primary">
+          Update Product
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
